@@ -1,1 +1,0 @@
-# AI_based_tender_management
