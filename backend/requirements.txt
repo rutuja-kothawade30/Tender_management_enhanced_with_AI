@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+sqlalchemy
+pydantic
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart
+pypdf
+pdfplumber
+google-genai
+google-generativeai
+numpy
+scikit-learn
+python-dotenv
+bcrypt
+email-validator

@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Roboto:wght@300;400;500;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Default Theme Tokens */
+  --bg-color: #0F172A;
+  --surface-color: #111827;
+  --card-color: #1E293B;
+  --border-color: #334155;
+  --accent-color: #6366F1;
+  --text-color: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --success-color: #10B981;
+  --warning-color: #F59E0B;
+  --danger-color: #EF4444;
+
+  /* Typography */
+  --font-family: 'Inter', -apple-system, sans-serif;
+  --font-weight: 500;
+  --letter-spacing: normal;
+  --line-height: 1.5;
+  
+  /* Component Style */
+  --border-radius: 12px;
+  --transition-speed: 250ms;
+  --density-padding: 20px;
+}
+
+@layer base {
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    font-weight: var(--font-weight);
+    letter-spacing: var(--letter-spacing);
+    line-height: var(--line-height);
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+  }
+}
+
+/* Custom Scrollbars mapping to design variables */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
+
+/* Tailwind utility mappings & overrides */
+.bg-dark-bg { background-color: var(--bg-color) !important; }
+.bg-surface { background-color: var(--surface-color) !important; }
+.bg-card-bg { background-color: var(--card-color) !important; }
+.text-accent { color: var(--accent-color) !important; }
+.bg-accent { background-color: var(--accent-color) !important; }
+.border-accent { border-color: var(--accent-color) !important; }
+.border-slate-border { border-color: var(--border-color) !important; }
+.text-slate-400 { color: var(--text-secondary) !important; }
+
+/* Dynamic utility classes overriding exact hex codes and slate variables in the codebase */
+.bg-\[\#0F172A\] { background-color: var(--bg-color) !important; }
+.bg-\[\#111827\] { background-color: var(--surface-color) !important; }
+.bg-\[\#1E293B\] { background-color: var(--card-color) !important; }
+.border-\[\#334155\] { border-color: var(--border-color) !important; }
+.text-\[\#F8FAFC\] { color: var(--text-color) !important; }
+.text-\[\#94A3B8\] { color: var(--text-secondary) !important; }
+
+/* Slate Backgrounds mapped to theme structures */
+.bg-slate-900 { background-color: var(--bg-color) !important; }
+.bg-slate-950 { background-color: var(--surface-color) !important; }
+.bg-slate-850 { background-color: var(--card-color) !important; }
+.bg-slate-800 { background-color: var(--card-color) !important; }
+.bg-slate-800\/40 { background-color: color-mix(in srgb, var(--accent-color) 6%, transparent) !important; }
+.bg-slate-800\/20 { background-color: color-mix(in srgb, var(--accent-color) 4%, transparent) !important; }
+
+/* Slate Borders mapped to theme borders */
+.border-slate-800 { border-color: var(--border-color) !important; }
+.border-slate-850 { border-color: var(--border-color) !important; }
+.border-slate-750 { border-color: var(--border-color) !important; }
+.border-slate-700 { border-color: var(--border-color) !important; }
+
+/* Slate Text states mapped to theme typography variables */
+.text-slate-100 { color: var(--text-color) !important; }
+.text-slate-200 { color: var(--text-color) !important; }
+.text-slate-300 { color: var(--text-color) !important; }
+.text-slate-400 { color: var(--text-secondary) !important; }
+.text-slate-500 { color: var(--text-secondary) !important; }
+
+/* Active Indigo highlights overrides mapped to dynamic accent colors */
+.bg-indigo-500\/5 { background-color: color-mix(in srgb, var(--accent-color) 8%, transparent) !important; }
+.border-indigo-500 { border-color: var(--accent-color) !important; }
+.text-indigo-400 { color: var(--accent-color) !important; }
+.bg-indigo-950 { background-color: color-mix(in srgb, var(--accent-color) 12%, transparent) !important; }
+.bg-purple-950 { background-color: color-mix(in srgb, var(--accent-color) 12%, transparent) !important; }
+.bg-teal-950 { background-color: color-mix(in srgb, var(--accent-color) 12%, transparent) !important; }
+.text-purple-400 { color: var(--accent-color) !important; }
+.text-teal-400 { color: var(--accent-color) !important; }
+
+/* Success, Warning, Danger */
+.text-success-custom { color: var(--success-color) !important; }
+.text-warning-custom { color: var(--warning-color) !important; }
+.text-danger-custom { color: var(--danger-color) !important; }
+.bg-success-custom\/10 { background-color: rgba(16, 185, 129, 0.1) !important; }
+.bg-warning-custom\/10 { background-color: rgba(245, 158, 11, 0.1) !important; }
+.bg-danger-custom\/10 { background-color: rgba(239, 68, 68, 0.1) !important; }
+
+/* Spacing and borders dynamically computed */
+.rounded-xl { border-radius: var(--border-radius) !important; }
+.rounded-2xl { border-radius: calc(var(--border-radius) + 4px) !important; }
+.rounded-3xl { border-radius: calc(var(--border-radius) + 12px) !important; }
+
+/* Padding mapping to workspace densities */
+.p-8 { padding: var(--density-padding) !important; }
+.p-6 { padding: calc(var(--density-padding) * 0.75) !important; }
+.gap-8 { gap: var(--density-padding) !important; }
+.gap-6 { gap: calc(var(--density-padding) * 0.75) !important; }
+
+/* Sidebar active state with color mix */
+.bg-sidebar-active {
+  background-color: color-mix(in srgb, var(--accent-color) 12%, transparent) !important;
+  color: var(--accent-color) !important;
+  border-color: color-mix(in srgb, var(--accent-color) 25%, transparent) !important;
+}
+
+/* Sidebar hover interaction */
+.hover-sidebar-item {
+  border: 1px solid transparent;
+  transition: all var(--transition-speed) ease;
+}
+.hover-sidebar-item:hover {
+  background-color: color-mix(in srgb, var(--accent-color) 8%, transparent) !important;
+  color: var(--accent-color) !important;
+  border-color: color-mix(in srgb, var(--accent-color) 15%, transparent) !important;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
